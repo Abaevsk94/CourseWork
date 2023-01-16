@@ -12,25 +12,20 @@ public class Main {
         employees[8] = new Employee("Шнуров", "Сергей", "Владимирович", 5, 31970);
         employees[9] = new Employee("Горшенев", "Михаил", "Юрьевич", 3, 42470);
         Employee.printEmployeeList(employees);
-        System.out.println("Общая сумма затрат на зарплаты в месяц - " + Employee.calculateTotalSalary(employees));
-        Employee employeeWithLowestSalary = Employee.findLowestSalaryEmployee(employees);
-        System.out.println("Сотрудник с наименьшей зарплатой в " + employeeWithLowestSalary.getSalary() + " рублей: " + employeeWithLowestSalary.getNick());
-        Employee employeeWithHighestSalary = Employee.findHighestSalaryEmployee(employees);
-        System.out.println("Сотрудник с наивысшей зарплатой в " + employeeWithHighestSalary.getSalary() + ": " + employeeWithHighestSalary.getNick());
+        Employee.calculateTotalSalary(employees);
+        Employee.findLowestSalaryEmployee(employees);
+        Employee.findHighestSalaryEmployee(employees);
         System.out.println("Среднее значение зарплат - " + Employee.calculateAverageSalary(employees));
         Employee.printEmployeesNames(employees);
         Employee.indexSalary(employees, 10);
         Employee.printEmployeeList(employees);
-        Employee.chooseDepartment(3);
-        Employee lowestPaidEmployeeInDepartment = Employee.findLowestPaidEmployeeInDepartment(employees, 3);
-        System.out.println("Сотрудник с наименьшей зарплатой в отделе № " + lowestPaidEmployeeInDepartment.getDepartment() + " : " + lowestPaidEmployeeInDepartment.getNick());
-        Employee highestPaidEmployeeInDepartment = Employee.findHighestPaidEmployeeInDepartment(employees, 3);
-        System.out.println("Сотрудник с наибольшей зарплатой в отделе № " + highestPaidEmployeeInDepartment.getDepartment() + " : " + highestPaidEmployeeInDepartment.getNick());
-        System.out.println("Общая сумма в отделе № " + Employee.chooseDepartment(3) + " : " + Employee.getTotalSalaryExpenseByDepartment(employees, 3));
-        System.out.println("Средняя сумма в отделе № " + Employee.chooseDepartment(3) + " : " + Employee.getAverageSalaryByDepartment(employees,3));
+        Employee.findLowestPaidEmployeeInDepartment(employees, Employee.chooseDepartment(3));
+        Employee.findHighestPaidEmployeeInDepartment(employees, Employee.chooseDepartment(3));
+        Employee.getTotalSalaryExpenseByDepartment(employees, Employee.chooseDepartment(3));
+        Employee.getAverageSalaryByDepartment(employees, Employee.chooseDepartment(3));
         Employee.indexSalaryByDepartment(employees, 3, 10);
         Employee.printEmployeesByDepartment(employees, 3);
-        Employee.printEmployeesWithSalaryLessThen(employees, 40000);
-        Employee.printEmployeesWithSalaryMoreThen(employees, 40000);
+        Employee.printEmployeesWithSalaryLessThen(employees, Employee.randomSalary(40000));
+        Employee.printEmployeesWithSalaryMoreThen(employees, Employee.randomSalary(40000));
     }
 }

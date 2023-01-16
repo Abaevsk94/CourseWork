@@ -67,27 +67,28 @@ public class Employee {
         for (Employee employee : employees) {
             totalSalary += employee.getSalary();
         }
+        System.out.println("Общая сумма затрат на зарплаты в месяц - " + totalSalary);
         return totalSalary;
     }
 
-    public static Employee findLowestSalaryEmployee(Employee[] employees) {
+    public static void findLowestSalaryEmployee(Employee[] employees) {
         Employee employeeWithLowestSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() < employeeWithLowestSalary.getSalary()) {
                 employeeWithLowestSalary = employee;
             }
         }
-        return employeeWithLowestSalary;
+        System.out.println("Сотрудник с наименьшей зарплатой в " + employeeWithLowestSalary.getSalary() + " рублей: " + employeeWithLowestSalary.getNick());
     }
 
-    public static Employee findHighestSalaryEmployee(Employee[] employees) {
+    public static void findHighestSalaryEmployee(Employee[] employees) {
         Employee employeeWithHighestSalary = employees[0];
         for (Employee employee : employees) {
             if (employee.getSalary() > employeeWithHighestSalary.getSalary()) {
                 employeeWithHighestSalary = employee;
             }
         }
-        return employeeWithHighestSalary;
+        System.out.println("Сотрудник с наивысшей зарплатой в " + employeeWithHighestSalary.getSalary() + ": " + employeeWithHighestSalary.getNick());
     }
 
     public static double calculateAverageSalary(Employee[] employees) {
@@ -111,7 +112,7 @@ public class Employee {
         return department;
     }
 
-    public static Employee findLowestPaidEmployeeInDepartment(Employee[] employees, int department) {
+    public static void findLowestPaidEmployeeInDepartment(Employee[] employees, int department) {
         Employee lowestPaidEmployeeInDepartment = null;
         double lowestSalary = Double.MAX_VALUE;
         for (Employee employee : employees) {
@@ -121,10 +122,11 @@ public class Employee {
                 employee.setDepartment(department);
             }
         }
-        return lowestPaidEmployeeInDepartment;
+        assert lowestPaidEmployeeInDepartment != null;
+        System.out.println("Сотрудник с наименьшей зарплатой в отделе № " + lowestPaidEmployeeInDepartment.getDepartment() + " : " + lowestPaidEmployeeInDepartment.getNick());
     }
 
-    public static Employee findHighestPaidEmployeeInDepartment(Employee[] employees, int department) {
+    public static void findHighestPaidEmployeeInDepartment(Employee[] employees, int department) {
         Employee highestPaidEmployeeInDepartment = null;
         double highestSalary = Double.MIN_VALUE;
         for (Employee employee : employees) {
@@ -134,10 +136,11 @@ public class Employee {
                 employee.setDepartment(department);
             }
         }
-        return highestPaidEmployeeInDepartment;
+        assert highestPaidEmployeeInDepartment != null;
+        System.out.println("Сотрудник с наибольшей зарплатой в отделе № " + highestPaidEmployeeInDepartment.getDepartment() + " : " + highestPaidEmployeeInDepartment.getNick());
     }
 
-    public static double getTotalSalaryExpenseByDepartment(Employee[] employees, int department) {
+    public static void getTotalSalaryExpenseByDepartment(Employee[] employees, int department) {
         double totalExpense = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
@@ -145,10 +148,10 @@ public class Employee {
                 employee.setDepartment(department);
             }
         }
-        return totalExpense;
+        System.out.println("Общая сумма в отделе № " + department + " : " + totalExpense);
     }
 
-    public static double getAverageSalaryByDepartment(Employee[] employees, int department) {
+    public static void getAverageSalaryByDepartment(Employee[] employees, int department) {
         double totalSalary = 0;
         int employeeCount = 0;
         for (Employee employee : employees) {
@@ -158,7 +161,7 @@ public class Employee {
                 employee.setDepartment(department);
             }
         }
-        return totalSalary / employeeCount;
+        System.out.println("Средняя сумма в отделе № " + department + " : " + (totalSalary/employeeCount));
     }
 
     public static void indexSalaryByDepartment(Employee[] employees, int department, double percent) {
@@ -179,6 +182,9 @@ public class Employee {
         }
     }
 
+    public static int randomSalary(int salary) {
+        return salary;
+    }
 
     public static void printEmployeesWithSalaryLessThen(Employee[] employees, int salary) {
         for (Employee employee : employees) {
