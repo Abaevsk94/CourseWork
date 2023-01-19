@@ -15,13 +15,13 @@ public class Main {
         Employee.calculateTotalSalary(employees);
         Employee.findLowestSalaryEmployee(employees);
         Employee.findHighestSalaryEmployee(employees);
-        System.out.println("Среднее значение зарплат - " + Employee.calculateAverageSalary(employees));
+        Employee.calculateAverageSalary(employees);
         Employee.printEmployeesNames(employees);
         Employee.indexSalary(employees, 10);
         Employee.printEmployeeList(employees);
         Employee.findLowestPaidEmployeeInDepartment(employees, Employee.chooseDepartment(3));
         Employee.findHighestPaidEmployeeInDepartment(employees, Employee.chooseDepartment(3));
-        Employee.getTotalSalaryExpenseByDepartment(employees, Employee.chooseDepartment(3));
+        Employee.getTotalSalaryByDepartment(employees, Employee.chooseDepartment(3));
         Employee.getAverageSalaryByDepartment(employees, Employee.chooseDepartment(3));
         Employee.indexSalaryByDepartment(employees, 3, 10);
         Employee.printEmployeesByDepartment(employees, 3);

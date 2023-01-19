@@ -57,18 +57,18 @@ public class Employee {
     }
 
     public static void printEmployeeList(Employee[] employees) {
+        System.out.println("Список сотрудников с полной информацией");
         for (Employee employee : employees) {
             System.out.println(employee);
         }
     }
 
-    public static double calculateTotalSalary(Employee[] employees) {
+    public static void calculateTotalSalary(Employee[] employees) {
         double totalSalary = 0;
         for (Employee employee : employees) {
             totalSalary += employee.getSalary();
         }
         System.out.println("Общая сумма затрат на зарплаты в месяц - " + totalSalary);
-        return totalSalary;
     }
 
     public static void findLowestSalaryEmployee(Employee[] employees) {
@@ -91,11 +91,18 @@ public class Employee {
         System.out.println("Сотрудник с наивысшей зарплатой в " + employeeWithHighestSalary.getSalary() + ": " + employeeWithHighestSalary.getNick());
     }
 
-    public static double calculateAverageSalary(Employee[] employees) {
-        return calculateTotalSalary(employees) / employees.length;
+    public static void calculateAverageSalary(Employee[] employees) {
+        double totalSalary = 0;
+        double averageSalary = 0;
+        for (Employee employee : employees) {
+            totalSalary += employee.getSalary();
+            averageSalary = totalSalary / employees.length;
+        }
+        System.out.println("Среднее значение зарплат - " + averageSalary);
     }
 
     public static void printEmployeesNames(Employee[] employees) {
+        System.out.println("Список сотрудников (ФИО)");
         for (Employee employee : employees) {
             System.out.println(employee.getNick());
         }
@@ -140,15 +147,15 @@ public class Employee {
         System.out.println("Сотрудник с наибольшей зарплатой в отделе № " + highestPaidEmployeeInDepartment.getDepartment() + " : " + highestPaidEmployeeInDepartment.getNick());
     }
 
-    public static void getTotalSalaryExpenseByDepartment(Employee[] employees, int department) {
-        double totalExpense = 0;
+    public static void getTotalSalaryByDepartment(Employee[] employees, int department) {
+        double totalSalary = 0;
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
-                totalExpense += employee.getSalary();
+                totalSalary += employee.getSalary();
                 employee.setDepartment(department);
             }
         }
-        System.out.println("Общая сумма в отделе № " + department + " : " + totalExpense);
+        System.out.println("Общая сумма в отделе № " + department + " : " + totalSalary);
     }
 
     public static void getAverageSalaryByDepartment(Employee[] employees, int department) {
@@ -175,6 +182,7 @@ public class Employee {
     }
 
     public static void printEmployeesByDepartment(Employee[] employees, int department) {
+        System.out.println("Список сотрудников отдела № " + chooseDepartment(department));
         for (Employee employee : employees) {
             if (employee.getDepartment() == department) {
                 System.out.println("ID: " + employee.getId() + " | Ф.И.О. сотрудника: " + employee.getNick() + " | Зарплата: " + employee.getSalary());
@@ -187,6 +195,7 @@ public class Employee {
     }
 
     public static void printEmployeesWithSalaryLessThen(Employee[] employees, int salary) {
+        System.out.println("Сотрудники с зарплатой ниже " + randomSalary(salary) + " рублей");
         for (Employee employee : employees) {
             if (employee.getSalary() < salary) {
                 System.out.println("ID: " + employee.getId() + " | Ф.И.О. сотрудника: " + employee.getNick() + " | Зарплата: " + employee.getSalary());
@@ -195,6 +204,7 @@ public class Employee {
     }
 
     public static void printEmployeesWithSalaryMoreThen(Employee[] employees, int salary) {
+        System.out.println("Сотрудники с зарплатой выше " + randomSalary(salary) + " рублей");
         for (Employee employee : employees) {
             if (employee.getSalary() > salary) {
                 System.out.println("ID: " + employee.getId() + " | Ф.И.О. сотрудника: " + employee.getNick() + " | Зарплата: " + employee.getSalary());
